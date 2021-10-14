@@ -1,7 +1,7 @@
 {
-  "name": "auth-service",
+  "name": "loan-service",
   "version": "1.0.0",
-  "description": "Authentication microservice in ExpressJS",
+  "description": "Loans microservice in ExpressJS",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

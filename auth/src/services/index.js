@@ -1,2 +1,2 @@
 export { getTokenFromEmailAndPassword, registerUser } from "./authService";
-export { getUserById } from "./userService";
+export { getCustomerById } from "./customerService";

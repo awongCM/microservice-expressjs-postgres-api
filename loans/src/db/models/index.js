@@ -1,1 +1,2 @@
-export { Loans } from "./Loans";
+export { Loan } from "./loan";
+export { LoanType } from "./loanType";

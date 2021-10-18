@@ -1,1 +1,1 @@
-export { getLoans, registerLoans } from "./loansService";
+export { getLoan, registerLoan } from "./loansService";

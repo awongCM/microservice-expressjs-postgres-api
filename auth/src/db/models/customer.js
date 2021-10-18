@@ -44,4 +44,4 @@ const modelOptions = {
   tableName: "customers",
 };
 
-const User = connection.define("Customer", modelAttributes, modelOptions);
+const Customer = connection.define("Customer", modelAttributes, modelOptions);

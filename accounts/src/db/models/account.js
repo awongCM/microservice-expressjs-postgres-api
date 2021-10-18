@@ -6,17 +6,37 @@ const modelAttributes = {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    primaryKey: true,
+    autoIncrement: false,
   },
-  amount: {
-    type: DataTypes.FLOAT,
-    unique: true,
+  balance: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: true,
     validate: {
-      isEmail: true,
+      isDecimal: true,
     },
   },
-  transactionDate: {
+  interestRate: {
+    type: DataTypes.FLOAT,
+    allowNull: true,
+    validate: {
+      isFloat: true,
+    },
+  },
+  overDraft: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: true,
+    validate: {
+      isDecimal: true,
+    },
+  },
+  lastAccessTimeStamp: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
+    validate: {
+      isDate: true,
+      isAfter: "1970-01-01",
+    },
   },
 };
 
@@ -25,3 +45,11 @@ const modelOptions = {
 };
 
 const Account = connection.define("Account", modelAttributes, modelOptions);
+
+Account.belongsTo(AccountType, {
+  foreignKey: "account_type_id",
+});
+
+Account.hasMany(Transaction, {
+  foreignKey: "transaction_id",
+});

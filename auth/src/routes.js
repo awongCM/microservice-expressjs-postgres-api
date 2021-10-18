@@ -2,8 +2,8 @@
 import express from "express";
 import {
   getTokenFromEmailAndPassword,
-  getUserById,
-  registerUser,
+  getCustomerById,
+  registerCustomer,
 } from "./services";
 import { resultCodes } from "./enums";
 import { authHandler } from "./middlewares";
@@ -16,14 +16,14 @@ authRoute.get("/check-token", authHandler, function (req, res) {
 });
 
 authRoute.get("/me", authHandler, function (req, res, next) {
-  getUserById(req.user.id)
+  getCustomerById(req.user.id)
     .then((user) => res.json({ result: resultCodes.SUCCESS, user }))
     .catch(next);
 });
 
 authRoute.post("/register", async function (req, res, next) {
   const { name, email, password } = req.body;
-  registerUser(name, email, password)
+  registerCustomer(name, email, password)
     .then(() => res.status(201).json({ result: resultCodes.SUCCESS }))
     .catch(next);
 });

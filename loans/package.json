@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "node ./src/index.js"
+    "build": "babel src/ -d dist",
+    "server":"node dist/index.js", 
+    "start": "node src/index.js"
   },
   "keywords": [
     "node",
@@ -24,6 +26,9 @@
     "sequelize": "^6.7.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "jest": "^27.2.5"
   }
 }

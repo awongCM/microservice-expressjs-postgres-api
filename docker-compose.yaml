@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+  db-service:
+    container_name: db
+    build:
+      context: ./database
+    env_file:
+      - database/.env
+    networks:
+      - n1
+  gateway:
+    container_name: gateway
+    build:
+      context: ./gateway
+    restart: always
+    ports:
+      - "80:8000"
+    networks:
+      - n1
+  service-auth:
+    container_name: service-auth
+    build:
+      context: ./auth
+    restart: always
+    env_file:
+      - auth/.env
+    networks:
+      - n1
+  service-accounts:
+    container_name: service-accounts
+    build:
+      context: ./accounts
+    restart: always
+    env_file:
+      - accounts/.env
+    networks:
+      - n1
+  service-loans:
+    container_name: service-loans
+    build:
+      context: ./loans
+    restart: always
+    env_file:
+      - loans/.env
+    networks:
+      - n1
+
+networks:
+  n1:
+    external: false

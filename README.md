@@ -1,8 +1,7 @@
 # microservice-expressjs-postgres-api
 Project Weekend with ExpressJS Microservice for a fictitious banking app
 
-## TODOs
-1. Boilerplate code for
+1. Boilerplate code introduced for the following key services
 * Auth Service
 * Accounts Service
 * Loans Service
